@@ -1,6 +1,7 @@
 package application;
 	
 import controller.tab.ClienteTabController;
+import controller.tab.EspcClienteTabController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -17,14 +18,17 @@ public class Main extends Application {
 		try {
 			TabPane tabpane = new TabPane();
 			Tab tab1 = new Tab("Cadastrar Cliente", new Label("Cadastrar Cliente"));
+			Tab tab2 = new Tab("Espaço do Cliente", new Label("Espaço do Cliente"));
 			tabpane.getTabs().add(tab1);
+			tabpane.getTabs().add(tab2);
 			VBox vbox = new VBox(tabpane);
-			Scene scene = new Scene(vbox,700,500);
-			
+			Scene scene = new Scene(vbox,700,600);
 			ClienteTabController clicontrol = new ClienteTabController ();
+			EspcClienteTabController cliespccontrol = new EspcClienteTabController ();
 			clicontrol.addTabElementos(tab1);
+			cliespccontrol.addTabElementos(tab2);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle("Cadastro Cliente");
+			primaryStage.setTitle("Cliente");
 			primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
